@@ -1,4 +1,4 @@
-# Load-Balancer
+# Load-Balancer 🖥️
 CSCE 412 Cloud Computing Project 2 - Creating a Load Balancer
 
 Learn how to model a simulation of a large company's load-balancing web requests using a load balancer.
