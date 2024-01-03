@@ -7,16 +7,16 @@ This project will require a real-world implementation of a queue. Thsi will also
 
 Load balancers are available commercially, but in this project, you will build one that has:
 
-● Requests - generates random IP addresses, both in and out, and random times for each request to be processed.
-	o IP in
-  o IP out
-  o Time (integer)
+● **Requests** - generates random IP addresses, both in and out, and random times for each request to be processed.
++ IP in
++ IP out
++ Time (integer)	
   
-● Webserver(s) 
-  o Takes requests from the Load Balancer
-  o Process the requests
-  o Asks for another
+● **Webserver(s)** 
++ Takes requests from the Load Balancer
++ Process the requests
++ Asks for another
   
-● Load Balancer
-  o Queue of requests
-  o Keeps track of time.
+● **Load Balancer**
++ Queue of requests
++ Keeps track of time.
