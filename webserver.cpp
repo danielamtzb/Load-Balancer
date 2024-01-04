@@ -3,18 +3,20 @@
 #include "request.cpp"
 #endif
 
+#include <string>
+
 class webserver{
 
   private:
     request req;
     int rinTime;
-    char serverName;
+    std::string serverName;
 
   public:
 
     //Constructor
-    webserver(): rinTime(0), serverName(' ') {}
-    webserver(char n): rinTime(0), serverName(n) {}
+    webserver(): rinTime(0), serverName("") {}
+    webserver(std::string n): rinTime(0), serverName(n) {}
 
     //Adding a request to your server
     void addRequest(request r, int currTime){
@@ -24,7 +26,7 @@ class webserver{
 
     //Getter functions
     request getRequest(){ return req; }
-    char getName(){ return serverName; }
+    std::string getName(){ return serverName; }
 
     bool isRequestFinish(int currTime){
       if(currTime > (rinTime + req.timeToProcess)){ return true; }

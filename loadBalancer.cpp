@@ -7,5 +7,18 @@ int loadBalancer::getTime(){ return time; }
 void loadBalancer::incrTime(){ time++; }
 
 void loadBalancer::addRequest(request req){ 
-    requestqueue
+    reqQueue.enqueue(req);
+    incrTime();
+}
+
+request loadBalancer::getRequest(){
+    incrTime();
+    if(!reqQueue.isEmpty()){
+        request req = reqQueue.dequeue();
+        return req;
+    }
+}
+
+bool loadBalancer::isReqQueueEmpty(){
+    return reqQueue.isEmpty();
 }

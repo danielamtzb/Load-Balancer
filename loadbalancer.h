@@ -4,18 +4,16 @@
 #include "request.cpp"
 #endif
 
-#ifndef WEBSERVER_CPP
-#include "request.cpp"
+#ifndef REQUESTQUEUE_CPP
+#include "requestQueue.cpp"
 #endif
-
-#include "requestqueue.h"
 
 
 class loadBalancer{
 
   private:
     int time;
-    queue <request> reqQueue;
+    requestQueue reqQueue;
 
   public:
     //Constructor

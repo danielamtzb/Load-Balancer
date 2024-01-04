@@ -1,3 +1,4 @@
+#define REQUESTQUEUE_CPP
 
 #ifndef REQUEST_CPP
 #include "request.cpp"
