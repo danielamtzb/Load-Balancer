@@ -18,8 +18,8 @@ class webserver{
 
     //Adding a request to your server
     void addRequest(request r, int currTime){
-        req = r;
-        rinTime = currTime;
+      req = r;
+      rinTime = currTime;
     }
 
     //Getter functions
@@ -27,8 +27,8 @@ class webserver{
     char getName(){ return serverName; }
 
     bool isRequestFinish(int currTime){
-        if(currTime > (rinTime + req.time)){ return true; }
-        else{ return false; }
+      if(currTime > (rinTime + req.timeToProcess)){ return true; }
+      else{ return false; }
     }
 
 };

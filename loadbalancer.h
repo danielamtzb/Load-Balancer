@@ -4,7 +4,12 @@
 #include "request.cpp"
 #endif
 
+#ifndef WEBSERVER_CPP
+#include "request.cpp"
+#endif
+
 #include "requestqueue.h"
+
 
 class loadBalancer{
 

@@ -1,11 +1,11 @@
 
+#define REQUEST_CPP
+
 #include <string>
-#define REQUEST.CPP
 
 struct request{
 
-    std::string source;
-    std::string dest;
-    int time;
-
+    std::string ipIn;
+    std::string ipOut;
+    int timeToProcess;
 };
