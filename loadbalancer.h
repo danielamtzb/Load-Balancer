@@ -1,30 +1,35 @@
+#ifndef LOADBALANCER_H
 #define LOADBALANCER_H
 
-#ifndef REQUEST_CPP
 #include "request.cpp"
-#endif
 
-#ifndef REQUESTQUEUE_CPP
 #include "requestQueue.cpp"
-#endif
+#include "webserver.cpp"
+#include <vector>
 
 
-class loadBalancer{
-
+class loadbalancer{
   private:
     int time;
+    int clockCycles;
     requestQueue reqQueue;
+    std::vector<webserver> webServers;
 
   public:
     //Constructor
-    loadBalancer(): time(0) {}
+    loadbalancer(int numServers, int clockCycles);
 
     int getTime();
     void incrTime();
 
-    void addRequest(request req);
+    void generateFullQueue(int numServers);
+    void addNewRequest();
+
     request getRequest();
     bool isReqQueueEmpty();
+
+    void runSimulation();
+    void printSimulation();
 };
 
-#include "loadbalancer.cpp"
+#endif

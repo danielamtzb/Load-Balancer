@@ -10,13 +10,11 @@ class webserver{
   private:
     request req;
     int rinTime;
-    std::string serverName;
 
   public:
 
     //Constructor
-    webserver(): rinTime(0), serverName("") {}
-    webserver(std::string n): rinTime(0), serverName(n) {}
+    webserver(): rinTime(0) {}
 
     //Adding a request to your server
     void addRequest(request r, int currTime){
@@ -25,8 +23,8 @@ class webserver{
     }
 
     //Getter functions
-    request getRequest(){ return req; }
-    std::string getName(){ return serverName; }
+    request getReq(){ return req; }
+    int getRinTime(){ return rinTime; }
 
     bool isRequestFinish(int currTime){
       if(currTime > (rinTime + req.timeToProcess)){ return true; }
