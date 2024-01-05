@@ -2,7 +2,6 @@
 #define LOADBALANCER_H
 
 #include "request.cpp"
-
 #include "requestQueue.cpp"
 #include "webserver.cpp"
 #include <vector>
@@ -12,6 +11,7 @@ class loadbalancer{
   private:
     int time;
     int clockCycles;
+    int maxRequests;
     requestQueue reqQueue;
     std::vector<webserver> webServers;
 

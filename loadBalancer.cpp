@@ -1,18 +1,24 @@
 
-#ifndef LOADBALANCER_H
 #include "loadbalancer.h"
-#endif
-
 #include <iostream>
+#include <iomanip>
 
-loadbalancer::loadbalancer(int numServers, int clockCycles): time(1), clockCycles(clockCycles) {
+/**
+ * @brief Constructor for the LoadBalancer class.
+ * @param numServers Number of servers in the load balancer.
+ * @param clockCycles Number of clock cycles for the simulation.
+ */
+loadbalancer::loadbalancer(int numServers, int clockCycles): time(0), clockCycles(clockCycles), maxRequests(numServers * 20) {
     webServers.resize(numServers);
-    generateFullQueue(numServers);
+    generateFullQueue(maxRequests);
 }
 
-void loadbalancer::generateFullQueue(int numServers){
-    int size = numServers * 20;
-    for(int i = 0; i < size; ++i){
+/**
+ * @brief Generates a full queue of requests with random IP addresses and processing times.
+ * @param maxRequests Maximum number of requests to generate.
+ */
+void loadbalancer::generateFullQueue(int maxRequests){
+    for(int i = 0; i < maxRequests; ++i){
         request newRequest{
             "192.168." + std::to_string(rand() % 256) + "." + std::to_string(rand() % 256),
             "203.0.113." + std::to_string(rand() % 256),
@@ -22,8 +28,12 @@ void loadbalancer::generateFullQueue(int numServers){
     }
 }
 
+/**
+ * @brief Adds a new request to the queue based on random conditions.
+ */
 void loadbalancer::addNewRequest() {
-    if(rand() % 5 == 0){
+    int qSize = reqQueue.getQueueSize();
+    if((rand() % 5 == 0) && qSize < maxRequests ){
         request newRequest{
             "192.168." + std::to_string(rand() % 256) + "." + std::to_string(rand() % 256),
             "203.0.113." + std::to_string(rand() % 256),
@@ -34,9 +44,21 @@ void loadbalancer::addNewRequest() {
     }
 }
 
+/**
+ * @brief Gets the current simulation time.
+ * @return Current simulation time.
+ */
 int loadbalancer::getTime(){ return time; }
+
+/**
+ * @brief Increments the simulation time.
+ */
 void loadbalancer::incrTime(){ time++; }
 
+/**
+ * @brief Gets a request from the queue.
+ * @return Request object.
+ */
 request loadbalancer::getRequest(){
     request req{ "", "", 0 };
     if(!reqQueue.isEmpty()){
@@ -46,15 +68,20 @@ request loadbalancer::getRequest(){
     return req;
 }
 
+/**
+ * @brief Checks if the request queue is empty.
+ * @return True if the queue is empty, false otherwise.
+ */
 bool loadbalancer::isReqQueueEmpty(){
     return reqQueue.isEmpty();
 }
 
-
+/**
+ * @brief Runs the simulation loop until the request queue is empty or the specified clock cycles are reached.
+ */
 void loadbalancer::runSimulation() {
-    while(!reqQueue.isEmpty() && time <= clockCycles){
-        addNewRequest();
-        
+    while(!reqQueue.isEmpty() && time < clockCycles){
+        incrTime();
         for(auto& server : webServers){
             //Add request if server is empty
             if(server.getRinTime() == 0){
@@ -64,21 +91,29 @@ void loadbalancer::runSimulation() {
                 request currRequest = reqQueue.dequeue();
                 server.addRequest(currRequest, time);
             }
+            addNewRequest();
         }
-        incrTime();
+        if(time % 50 == 0 || time == 1 || time == clockCycles){
+            printSimulation();
+        }
     }
-    printSimulation();
 }
 
+/**
+ * @brief Prints the current simulation status, including server information.
+ */
 void loadbalancer::printSimulation(){
     std::cout << "+--------------------------------------------------------+\n";
-    std::cout << "                 Current Time: " << this->time << std::endl;
+    std::cout << "|                   Current Time: " << std::setw(5) << this->time << std::setw(20) << " |\n";
+    std::cout << "|                Requests on Queue: " << std::setw(5) << this->reqQueue.getQueueSize() << std::setw(18) << " |\n";
     std::cout << "|   Server ipIN    |   Server ipOut   | Time it finishes |\n";
     std::cout << "+--------------------------------------------------------+\n";
 
     for(auto& server : webServers){
-        std::cout << "| " << server.getReq().ipIn << " | "
-                << server.getReq().ipOut << " | " << server.getReq().timeToProcess << " |\n";
+        int serverTime = server.getRinTime() + server.getReq().timeToProcess;
+        std::cout << "| " << std::setw(16) << server.getReq().ipIn
+                  << " | " << std::setw(16) << server.getReq().ipOut
+                  << " | " << std::setw(8) << serverTime << std::setw(11) << " |\n";
     }
     std::cout << "+--------------------------------------------------------+\n";
 }
