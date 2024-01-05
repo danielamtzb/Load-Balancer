@@ -5,6 +5,12 @@
 using namespace std;
 
 /**
+ * Compile the code: g++ main.cpp loadbalancer.cpp -o my_program
+ * RUN: ./my_program
+ * Output into a log file: ./my_program > log.txt
+ */
+
+/**
  * @brief The main function to run the load balancing simulation.
  * @return 0 if the program executed successfully.
  */

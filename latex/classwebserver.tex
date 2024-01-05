@@ -1,0 +1,93 @@
+\doxysection{webserver Class Reference}
+\hypertarget{classwebserver}{}\label{classwebserver}\index{webserver@{webserver}}
+
+
+Represents a web server that processes requests.  
+
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classwebserver_ae6f13a3cb80fe961cdaf70c7e03f36dc}\label{classwebserver_ae6f13a3cb80fe961cdaf70c7e03f36dc} 
+{\bfseries webserver} ()
+\begin{DoxyCompactList}\small\item\em Constructor for the webserver class. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classwebserver_abb2f44ffc37ebc12bb69d82d7be147c7}{add\+Request}} (\mbox{\hyperlink{structrequest}{request}} r, int curr\+Time)
+\begin{DoxyCompactList}\small\item\em Adds a request to the server. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structrequest}{request}} \mbox{\hyperlink{classwebserver_adb9b37b80c3dcf09b05e749949ca7a6d}{get\+Req}} ()
+\begin{DoxyCompactList}\small\item\em Gets the request currently being processed by the server. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classwebserver_aa1b09cb35017da84e7d1b56c49e1cb1c}{get\+Rin\+Time}} ()
+\begin{DoxyCompactList}\small\item\em Gets the time when the current request entered the server. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classwebserver_a57c1283899370447cfd3a0d204d28676}{is\+Request\+Finish}} (int curr\+Time)
+\begin{DoxyCompactList}\small\item\em Checks if the current request has finished processing. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents a web server that processes requests. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classwebserver_abb2f44ffc37ebc12bb69d82d7be147c7}\label{classwebserver_abb2f44ffc37ebc12bb69d82d7be147c7} 
+\index{webserver@{webserver}!addRequest@{addRequest}}
+\index{addRequest@{addRequest}!webserver@{webserver}}
+\doxysubsubsection{\texorpdfstring{addRequest()}{addRequest()}}
+{\footnotesize\ttfamily void webserver\+::add\+Request (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structrequest}{request}}}]{r,  }\item[{int}]{curr\+Time }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Adds a request to the server. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em r} & The request to be added. \\
+\hline
+{\em curr\+Time} & The current simulation time. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classwebserver_adb9b37b80c3dcf09b05e749949ca7a6d}\label{classwebserver_adb9b37b80c3dcf09b05e749949ca7a6d} 
+\index{webserver@{webserver}!getReq@{getReq}}
+\index{getReq@{getReq}!webserver@{webserver}}
+\doxysubsubsection{\texorpdfstring{getReq()}{getReq()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structrequest}{request}} webserver\+::get\+Req (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets the request currently being processed by the server. 
+
+\begin{DoxyReturn}{Returns}
+The current request. 
+\end{DoxyReturn}
+\Hypertarget{classwebserver_aa1b09cb35017da84e7d1b56c49e1cb1c}\label{classwebserver_aa1b09cb35017da84e7d1b56c49e1cb1c} 
+\index{webserver@{webserver}!getRinTime@{getRinTime}}
+\index{getRinTime@{getRinTime}!webserver@{webserver}}
+\doxysubsubsection{\texorpdfstring{getRinTime()}{getRinTime()}}
+{\footnotesize\ttfamily int webserver\+::get\+Rin\+Time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets the time when the current request entered the server. 
+
+\begin{DoxyReturn}{Returns}
+The time of entry. 
+\end{DoxyReturn}
+\Hypertarget{classwebserver_a57c1283899370447cfd3a0d204d28676}\label{classwebserver_a57c1283899370447cfd3a0d204d28676} 
+\index{webserver@{webserver}!isRequestFinish@{isRequestFinish}}
+\index{isRequestFinish@{isRequestFinish}!webserver@{webserver}}
+\doxysubsubsection{\texorpdfstring{isRequestFinish()}{isRequestFinish()}}
+{\footnotesize\ttfamily bool webserver\+::is\+Request\+Finish (\begin{DoxyParamCaption}\item[{int}]{curr\+Time }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Checks if the current request has finished processing. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em curr\+Time} & The current simulation time. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the request has finished processing, false otherwise. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+webserver.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,167 @@
+\doxysection{loadbalancer Class Reference}
+\hypertarget{classloadbalancer}{}\label{classloadbalancer}\index{loadbalancer@{loadbalancer}}
+
+
+Represents a load balancer for web requests.  
+
+
+
+
+{\ttfamily \#include $<$loadbalancer.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classloadbalancer_a4a2cf8169a16da4dfa9ea8b5fcdce986}{loadbalancer}} (int num\+Servers, int clock\+Cycles)
+\begin{DoxyCompactList}\small\item\em Constructor for the load balancer. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classloadbalancer_afc308893c7ab0fc8b92036deae7a2de9}{get\+Time}} ()
+\begin{DoxyCompactList}\small\item\em Gets the current simulation time. \end{DoxyCompactList}\item 
+\Hypertarget{classloadbalancer_a995d413092ae68e3b4602ffeaa053c7e}\label{classloadbalancer_a995d413092ae68e3b4602ffeaa053c7e} 
+void {\bfseries incr\+Time} ()
+\begin{DoxyCompactList}\small\item\em Increments the simulation time. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classloadbalancer_a8d702b096927bc114c2e6a05d7b626dc}{generate\+Full\+Queue}} (int num\+Servers)
+\begin{DoxyCompactList}\small\item\em Generates a full queue of requests. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classloadbalancer_ac8a4ed255a47ba87ecb821e8f1b57058}{add\+New\+Request}} ()
+\begin{DoxyCompactList}\small\item\em Adds a new request to the system at random times. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structrequest}{request}} \mbox{\hyperlink{classloadbalancer_a3d1715e4b2218a7aa9ad74e3e4fa6167}{get\+Request}} ()
+\begin{DoxyCompactList}\small\item\em Gets the next request from the queue. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classloadbalancer_a181921d9418e3aa0c2abd1054d00f42f}{is\+Req\+Queue\+Empty}} ()
+\begin{DoxyCompactList}\small\item\em Checks if the request queue is empty. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classloadbalancer_af195860313a239b4dc16630cfcb60033}{run\+Simulation}} ()
+\begin{DoxyCompactList}\small\item\em Runs the load balancing simulation until the queue is empty or the time limit is reached. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classloadbalancer_a788e7c288bc3d5aadfd25b0ff153c07b}{print\+Simulation}} ()
+\begin{DoxyCompactList}\small\item\em Prints the current simulation state. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents a load balancer for web requests. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classloadbalancer_a4a2cf8169a16da4dfa9ea8b5fcdce986}\label{classloadbalancer_a4a2cf8169a16da4dfa9ea8b5fcdce986} 
+\index{loadbalancer@{loadbalancer}!loadbalancer@{loadbalancer}}
+\index{loadbalancer@{loadbalancer}!loadbalancer@{loadbalancer}}
+\doxysubsubsection{\texorpdfstring{loadbalancer()}{loadbalancer()}}
+{\footnotesize\ttfamily loadbalancer\+::loadbalancer (\begin{DoxyParamCaption}\item[{int}]{num\+Servers,  }\item[{int}]{clock\+Cycles }\end{DoxyParamCaption})}
+
+
+
+Constructor for the load balancer. 
+
+Constructor for the Load\+Balancer class.
+
+
+\begin{DoxyParams}{Parameters}
+{\em num\+Servers} & The number of web servers in the system. \\
+\hline
+{\em clock\+Cycles} & The total simulation time in clock cycles.\\
+\hline
+{\em num\+Servers} & Number of servers in the load balancer. \\
+\hline
+{\em clock\+Cycles} & Number of clock cycles for the simulation. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classloadbalancer_ac8a4ed255a47ba87ecb821e8f1b57058}\label{classloadbalancer_ac8a4ed255a47ba87ecb821e8f1b57058} 
+\index{loadbalancer@{loadbalancer}!addNewRequest@{addNewRequest}}
+\index{addNewRequest@{addNewRequest}!loadbalancer@{loadbalancer}}
+\doxysubsubsection{\texorpdfstring{addNewRequest()}{addNewRequest()}}
+{\footnotesize\ttfamily void loadbalancer\+::add\+New\+Request (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Adds a new request to the system at random times. 
+
+Adds a new request to the queue based on random conditions. \Hypertarget{classloadbalancer_a8d702b096927bc114c2e6a05d7b626dc}\label{classloadbalancer_a8d702b096927bc114c2e6a05d7b626dc} 
+\index{loadbalancer@{loadbalancer}!generateFullQueue@{generateFullQueue}}
+\index{generateFullQueue@{generateFullQueue}!loadbalancer@{loadbalancer}}
+\doxysubsubsection{\texorpdfstring{generateFullQueue()}{generateFullQueue()}}
+{\footnotesize\ttfamily void loadbalancer\+::generate\+Full\+Queue (\begin{DoxyParamCaption}\item[{int}]{max\+Requests }\end{DoxyParamCaption})}
+
+
+
+Generates a full queue of requests. 
+
+Generates a full queue of requests with random IP addresses and processing times.
+
+
+\begin{DoxyParams}{Parameters}
+{\em num\+Servers} & The number of web servers.\\
+\hline
+{\em max\+Requests} & Maximum number of requests to generate. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classloadbalancer_a3d1715e4b2218a7aa9ad74e3e4fa6167}\label{classloadbalancer_a3d1715e4b2218a7aa9ad74e3e4fa6167} 
+\index{loadbalancer@{loadbalancer}!getRequest@{getRequest}}
+\index{getRequest@{getRequest}!loadbalancer@{loadbalancer}}
+\doxysubsubsection{\texorpdfstring{getRequest()}{getRequest()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structrequest}{request}} loadbalancer\+::get\+Request (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the next request from the queue. 
+
+Gets a request from the queue.
+
+\begin{DoxyReturn}{Returns}
+The next request.
+
+Request object. 
+\end{DoxyReturn}
+\Hypertarget{classloadbalancer_afc308893c7ab0fc8b92036deae7a2de9}\label{classloadbalancer_afc308893c7ab0fc8b92036deae7a2de9} 
+\index{loadbalancer@{loadbalancer}!getTime@{getTime}}
+\index{getTime@{getTime}!loadbalancer@{loadbalancer}}
+\doxysubsubsection{\texorpdfstring{getTime()}{getTime()}}
+{\footnotesize\ttfamily int loadbalancer\+::get\+Time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the current simulation time. 
+
+\begin{DoxyReturn}{Returns}
+The current simulation time.
+
+Current simulation time. 
+\end{DoxyReturn}
+\Hypertarget{classloadbalancer_a181921d9418e3aa0c2abd1054d00f42f}\label{classloadbalancer_a181921d9418e3aa0c2abd1054d00f42f} 
+\index{loadbalancer@{loadbalancer}!isReqQueueEmpty@{isReqQueueEmpty}}
+\index{isReqQueueEmpty@{isReqQueueEmpty}!loadbalancer@{loadbalancer}}
+\doxysubsubsection{\texorpdfstring{isReqQueueEmpty()}{isReqQueueEmpty()}}
+{\footnotesize\ttfamily bool loadbalancer\+::is\+Req\+Queue\+Empty (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Checks if the request queue is empty. 
+
+\begin{DoxyReturn}{Returns}
+True if the request queue is empty, false otherwise.
+
+True if the queue is empty, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{classloadbalancer_a788e7c288bc3d5aadfd25b0ff153c07b}\label{classloadbalancer_a788e7c288bc3d5aadfd25b0ff153c07b} 
+\index{loadbalancer@{loadbalancer}!printSimulation@{printSimulation}}
+\index{printSimulation@{printSimulation}!loadbalancer@{loadbalancer}}
+\doxysubsubsection{\texorpdfstring{printSimulation()}{printSimulation()}}
+{\footnotesize\ttfamily void loadbalancer\+::print\+Simulation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Prints the current simulation state. 
+
+Prints the current simulation status, including server information. \Hypertarget{classloadbalancer_af195860313a239b4dc16630cfcb60033}\label{classloadbalancer_af195860313a239b4dc16630cfcb60033} 
+\index{loadbalancer@{loadbalancer}!runSimulation@{runSimulation}}
+\index{runSimulation@{runSimulation}!loadbalancer@{loadbalancer}}
+\doxysubsubsection{\texorpdfstring{runSimulation()}{runSimulation()}}
+{\footnotesize\ttfamily void loadbalancer\+::run\+Simulation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Runs the load balancing simulation until the queue is empty or the time limit is reached. 
+
+Runs the simulation loop until the request queue is empty or the specified clock cycles are reached. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+loadbalancer.\+h\item 
+loadbalancer.\+cpp\end{DoxyCompactItemize}

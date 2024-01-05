@@ -1,0 +1,37 @@
+\doxysection{webserver.\+cpp}
+\hypertarget{webserver_8cpp_source}{}\label{webserver_8cpp_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#ifndef\ REQUEST\_CPP}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}request.cpp"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classwebserver}{webserver}}\{}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00014\ \ \ \ \ \mbox{\hyperlink{structrequest}{request}}\ req;\ \ }
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keywordtype}{int}\ rinTime;\ \ }
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00022\ \ \ \ \ \mbox{\hyperlink{classwebserver_ae6f13a3cb80fe961cdaf70c7e03f36dc}{webserver}}():\ rinTime(0)\ \{\}}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classwebserver_abb2f44ffc37ebc12bb69d82d7be147c7}{addRequest}}(\mbox{\hyperlink{structrequest}{request}}\ r,\ \textcolor{keywordtype}{int}\ currTime)\{}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ req\ =\ r;}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ rinTime\ =\ currTime;}
+\DoxyCodeLine{00032\ \ \ \ \ \}}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00038\ \ \ \ \ \mbox{\hyperlink{structrequest}{request}}\ \mbox{\hyperlink{classwebserver_adb9b37b80c3dcf09b05e749949ca7a6d}{getReq}}()\{\ \textcolor{keywordflow}{return}\ req;\ \}}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classwebserver_aa1b09cb35017da84e7d1b56c49e1cb1c}{getRinTime}}()\{\ \textcolor{keywordflow}{return}\ rinTime;\ \}}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classwebserver_a57c1283899370447cfd3a0d204d28676}{isRequestFinish}}(\textcolor{keywordtype}{int}\ currTime)\{}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \textcolor{keywordflow}{if}(currTime\ >\ (rinTime\ +\ req.\mbox{\hyperlink{structrequest_aab0c9ef2df6d6c10f057a0066908cce2}{timeToProcess}}))\{\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};\ \}}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \textcolor{keywordflow}{else}\{\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};\ \}}
+\DoxyCodeLine{00054\ \ \ \ \ \}}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \};}
+
+\end{DoxyCode}

@@ -1,0 +1,42 @@
+\doxysection{loadbalancer.\+h}
+\hypertarget{loadbalancer_8h_source}{}\label{loadbalancer_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ LOADBALANCER\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ LOADBALANCER\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}request.cpp"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}requestQueue.cpp"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}webserver.cpp"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classloadbalancer}{loadbalancer}}\{}
+\DoxyCodeLine{00013\ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keywordtype}{int}\ time;\ }
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keywordtype}{int}\ clockCycles;\ }
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordtype}{int}\ maxRequests;\ }
+\DoxyCodeLine{00017\ \ \ \ \ \mbox{\hyperlink{classrequest_queue}{requestQueue}}\ reqQueue;\ }
+\DoxyCodeLine{00018\ \ \ \ \ std::vector<webserver>\ webServers;\ }
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00026\ \ \ \ \ \mbox{\hyperlink{classloadbalancer_a4a2cf8169a16da4dfa9ea8b5fcdce986}{loadbalancer}}(\textcolor{keywordtype}{int}\ numServers,\ \textcolor{keywordtype}{int}\ clockCycles);}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classloadbalancer_afc308893c7ab0fc8b92036deae7a2de9}{getTime}}();}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classloadbalancer_a995d413092ae68e3b4602ffeaa053c7e}{incrTime}}();}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classloadbalancer_a8d702b096927bc114c2e6a05d7b626dc}{generateFullQueue}}(\textcolor{keywordtype}{int}\ numServers);}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classloadbalancer_ac8a4ed255a47ba87ecb821e8f1b57058}{addNewRequest}}();}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00054\ \ \ \ \ \mbox{\hyperlink{structrequest}{request}}\ \mbox{\hyperlink{classloadbalancer_a3d1715e4b2218a7aa9ad74e3e4fa6167}{getRequest}}();}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classloadbalancer_a181921d9418e3aa0c2abd1054d00f42f}{isReqQueueEmpty}}();}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classloadbalancer_af195860313a239b4dc16630cfcb60033}{runSimulation}}();}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classloadbalancer_a788e7c288bc3d5aadfd25b0ff153c07b}{printSimulation}}();}
+\DoxyCodeLine{00071\ \};}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}
