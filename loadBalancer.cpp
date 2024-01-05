@@ -33,7 +33,16 @@ void loadbalancer::generateFullQueue(int maxRequests){
  */
 void loadbalancer::addNewRequest() {
     int qSize = reqQueue.getQueueSize();
-    if((rand() % 5 == 0) && qSize < maxRequests ){
+    int numServers = webServers.size();
+
+    if (qSize >= maxRequests){
+        maxRequests += 20;
+        webServers.resize(numServers + 1);
+    }else if(qSize < (numServers * 15)){
+        maxRequests -= 20;
+        webServers.resize(numServers - 1);
+    }
+    while((rand() % 5 == 0) || (rand() % 4 == 0)){
         request newRequest{
             "192.168." + std::to_string(rand() % 256) + "." + std::to_string(rand() % 256),
             "203.0.113." + std::to_string(rand() % 256),
@@ -82,6 +91,7 @@ bool loadbalancer::isReqQueueEmpty(){
 void loadbalancer::runSimulation() {
     while(!reqQueue.isEmpty() && time < clockCycles){
         incrTime();
+        addNewRequest();
         for(auto& server : webServers){
             //Add request if server is empty
             if(server.getRinTime() == 0){
@@ -91,7 +101,6 @@ void loadbalancer::runSimulation() {
                 request currRequest = reqQueue.dequeue();
                 server.addRequest(currRequest, time);
             }
-            addNewRequest();
         }
         if(time % 50 == 0 || time == 1 || time == clockCycles){
             printSimulation();
@@ -103,17 +112,18 @@ void loadbalancer::runSimulation() {
  * @brief Prints the current simulation status, including server information.
  */
 void loadbalancer::printSimulation(){
-    std::cout << "+--------------------------------------------------------+\n";
-    std::cout << "|                   Current Time: " << std::setw(5) << this->time << std::setw(20) << " |\n";
-    std::cout << "|                Requests on Queue: " << std::setw(5) << this->reqQueue.getQueueSize() << std::setw(18) << " |\n";
-    std::cout << "|   Server ipIN    |   Server ipOut   | Time it finishes |\n";
-    std::cout << "+--------------------------------------------------------+\n";
+    std::cout << "+--------------------------------------------------------------------------+\n";
+    std::cout << "|                             Current Time: " << std::setw(5) << this->time << std::setw(28) << " |\n";
+    std::cout << "|                          Requests on Queue: " << std::setw(5) << this->reqQueue.getQueueSize() << std::setw(26) << " |\n";
+    std::cout << "|   Server ipIN    |   Server ipOut   | Time it finishes | Time to Process |\n";
+    std::cout << "+--------------------------------------------------------------------------+\n";
 
     for(auto& server : webServers){
         int serverTime = server.getRinTime() + server.getReq().timeToProcess;
         std::cout << "| " << std::setw(16) << server.getReq().ipIn
                   << " | " << std::setw(16) << server.getReq().ipOut
-                  << " | " << std::setw(8) << serverTime << std::setw(11) << " |\n";
+                  << " | " << std::setw(8) << serverTime << std::setw(11)
+                  << " | " << std::setw(8) << server.getReq().timeToProcess << std::setw(10) << " |\n";
     }
-    std::cout << "+--------------------------------------------------------+\n";
+    std::cout << "+--------------------------------------------------------------------------+\n";
 }
