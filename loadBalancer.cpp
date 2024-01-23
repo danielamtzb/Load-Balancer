@@ -10,7 +10,7 @@
  */
 loadbalancer::loadbalancer(int numServers, int clockCycles): time(0), clockCycles(clockCycles), maxRequests(numServers * 20) {
     webServers.resize(numServers);
-    generateFullQueue(maxRequests);
+    generateFullQueue(maxRequests);  
 }
 
 /**
